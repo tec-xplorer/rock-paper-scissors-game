@@ -7,3 +7,10 @@ let computerWin = false;
 let numberOfRounds = 0;
 let humanScore = 0;
 let computerScore = 0;
+
+function displayChoices() {
+    console.log("Choisissez une option :");
+    for (let key in GAME_CHOICES) {
+        console.log(`${key} pour ${GAME_CHOICES[key]}`)
+    };
+}
