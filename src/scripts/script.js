@@ -29,3 +29,17 @@ function getHumanChoice() {
 function getComputerChoice() {
     return Math.floor(Math.random() * 3) + 1;
 }
+
+function determineRoundWinner(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return; // undefined, no change, equality
+    } else if (playerChoice === 1 && computerChoice === 3) {
+        playerWin = true;
+    } else if (playerChoice === 2 && computerChoice === 1) {
+        playerWin = true;
+    } else if (playerChoice === 3 && computerChoice === 2) {
+        playerWin = true;
+    } else {
+        computerWin = true;
+    }
+}
