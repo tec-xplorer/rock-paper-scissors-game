@@ -43,3 +43,13 @@ function determineRoundWinner(playerChoice, computerChoice) {
         computerWin = true;
     }
 }
+
+function displayRoundResult (playerChoice, computerChoice) {
+    if (playerWin === true && computerWin === false) {
+        console.log(`Vous gagnez ! ${GAME_CHOICES[playerChoice]} bat ${GAME_CHOICES[computerChoice]}`);
+    } else if (playerWin == false && computerWin == true) {
+        console.log(`L'ordinateur gagne ! ${GAME_CHOICES[computerChoice]} bat ${GAME_CHOICES[playerChoice]}`);
+    } else {
+        console.log(`C'est une égalité ! Vous avez tous deux choisi ${GAME_CHOICES[playerChoice]}`);
+    }
+}
