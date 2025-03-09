@@ -53,3 +53,14 @@ function displayRoundResult (playerChoice, computerChoice) {
         console.log(`C'est une égalité ! Vous avez tous deux choisi ${GAME_CHOICES[playerChoice]}`);
     }
 }
+
+function checkEndCondition(humanScore, computerScore, numberOfRounds) {
+    if (humanScore === 3) {
+        return "joueur gagne";
+    } else if (computerScore === 3) {
+        return "ordinateur gagne";
+    } else if (numberOfRounds === MAX_ROUNDS) {
+        return "limite atteinte";
+    }
+    return "continuer";
+}
