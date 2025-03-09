@@ -64,3 +64,22 @@ function checkEndCondition(humanScore, computerScore, numberOfRounds) {
     }
     return "continuer";
 }
+
+function displayEndCondition(gameState) {
+    switch (gameState) {
+        case "joueur gagne":
+            console.log("Vous avez gagné la partie !");
+            break;
+        case "ordinateur gagne":
+            console.log("L'ordinateur a gagné la partie !");
+            break;
+        case "limite atteinte":
+            console.log("La limite des tours a été atteinte, fin de la partie.");
+            break;
+        case "continuer":
+            console.log("La partie continue !");
+            break;
+        default:
+            console.log("État inconnu, veuillez vérifier le programme.");
+    }
+}
