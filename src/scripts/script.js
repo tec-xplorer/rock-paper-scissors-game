@@ -83,3 +83,10 @@ function displayEndCondition(gameState) {
             console.log("État inconnu, veuillez vérifier le programme.");
     }
 }
+
+function playRound() {
+    playerChoice = getHumanChoice();
+    computerChoice = getComputerChoice();
+    determineRoundWinner(playerChoice, computerChoice);
+    displayRoundResult(playerChoice, computerChoice);
+}
