@@ -22,12 +22,14 @@ function getHumanChoice() {
         console.log("Entrée invalide. Veuillez saisir 1, 2 ou 3.");
         userInput = parseInt(prompt("Faites votre choix !"), 10);
     }
-    console.log(`Vous avez choisi: ${userInput}`)
+    console.log(`Vous avez choisi: ${userInput}`);
     return userInput;
 }
 
 function getComputerChoice() {
-    return Math.floor(Math.random() * 3) + 1;
+    const computerRandomChoice = Math.floor(Math.random() * 3) + 1;
+    console.log(`L'ordinateur a choisi: ${computerRandomChoice}`);
+    return computerRandomChoice;
 }
 
 function determineRoundWinner(playerChoice, computerChoice) {
@@ -90,3 +92,5 @@ function playRound() {
     determineRoundWinner(playerChoice, computerChoice);
     displayRoundResult(playerChoice, computerChoice);
 }
+
+playRound();
