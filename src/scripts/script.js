@@ -93,4 +93,16 @@ function playRound() {
     displayRoundResult(playerChoice, computerChoice);
 }
 
-playRound();
+function playGame() {
+    while (checkEndCondition(humanScore, computerScore, numberOfRounds) === "continuer") {
+        playRound();
+        numberOfRounds += 1;
+        if (playerWin === true) {
+            humanScore += 1;
+        } else if (computerWin === true) {
+            computerScore += 1;
+        }
+    }
+    gameState = checkEndCondition(humanScore, computerScore, numberOfRounds);
+    displayEndCondition(gameState);
+}
