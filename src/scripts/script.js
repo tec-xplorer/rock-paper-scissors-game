@@ -87,6 +87,8 @@ function displayEndCondition(gameState) {
 }
 
 function playRound() {
+    playerWin = false;
+    computerWin = false;
     playerChoice = getHumanChoice();
     computerChoice = getComputerChoice();
     determineRoundWinner(playerChoice, computerChoice);
