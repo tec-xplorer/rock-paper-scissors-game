@@ -104,6 +104,7 @@ function playGame() {
         } else if (computerWin === true) {
             computerScore += 1;
         }
+        console.log(`Votre score : ${humanScore}, le score de l'ordinateur : ${computerScore}`)
     }
     gameState = checkEndCondition(humanScore, computerScore, numberOfRounds);
     displayEndCondition(gameState);
