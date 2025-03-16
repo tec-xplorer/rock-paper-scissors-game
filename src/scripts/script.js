@@ -1,5 +1,5 @@
 const MAX_ROUNDS = 5;
-const GAME_CHOICES = {1: "Pierre", 2: "Papier", 3: "Ciseaux"};
+const GAME_CHOICES = {1: "Rock", 2: "Paper", 3: "Scissors"};
 let playerChoice = "";
 let computerChoice = "";
 let playerWin = false;
@@ -9,26 +9,26 @@ let humanScore = 0;
 let computerScore = 0;
 
 function displayChoices() {
-    console.log("Choisissez une option :");
+    console.log("Choose an option:");
     for (let key in GAME_CHOICES) {
-        console.log(`${key} pour ${GAME_CHOICES[key]}`);
+        console.log(`${key} for ${GAME_CHOICES[key]}`);
     }
 }
 
 function getHumanChoice() {
     displayChoices();
-    let userInput = parseInt(prompt("Faites votre choix !"), 10);
-    while(userInput !== 1 && userInput !== 2 && userInput !== 3 ) {
-        console.log("Entrée invalide. Veuillez saisir 1, 2 ou 3.");
-        userInput = parseInt(prompt("Faites votre choix !"), 10);
+    let userInput = parseInt(prompt("Make your choice!"), 10);
+    while (userInput !== 1 && userInput !== 2 && userInput !== 3) {
+        console.log("Invalid entry. Please enter 1, 2, or 3.");
+        userInput = parseInt(prompt("Make your choice!"), 10);
     }
-    console.log(`Vous avez choisi: ${userInput}`);
+    console.log(`You have chosen: ${userInput}`);
     return userInput;
 }
 
 function getComputerChoice() {
     const computerRandomChoice = Math.floor(Math.random() * 3) + 1;
-    console.log(`L'ordinateur a choisi: ${computerRandomChoice}`);
+    console.log(`The computer chose: ${computerRandomChoice}`);
     return computerRandomChoice;
 }
 
@@ -46,43 +46,43 @@ function determineRoundWinner(playerChoice, computerChoice) {
     }
 }
 
-function displayRoundResult (playerChoice, computerChoice) {
+function displayRoundResult(playerChoice, computerChoice) {
     if (playerWin === true && computerWin === false) {
-        console.log(`Vous gagnez ! ${GAME_CHOICES[playerChoice]} bat ${GAME_CHOICES[computerChoice]}`);
-    } else if (playerWin == false && computerWin == true) {
-        console.log(`L'ordinateur gagne ! ${GAME_CHOICES[computerChoice]} bat ${GAME_CHOICES[playerChoice]}`);
+        console.log(`You win! ${GAME_CHOICES[playerChoice]} beats ${GAME_CHOICES[computerChoice]}`);
+    } else if (playerWin === false && computerWin === true) {
+        console.log(`The computer wins! ${GAME_CHOICES[computerChoice]} beats ${GAME_CHOICES[playerChoice]}`);
     } else {
-        console.log(`C'est une égalité ! Vous avez tous deux choisi ${GAME_CHOICES[playerChoice]}`);
+        console.log(`It's a tie! Both chose ${GAME_CHOICES[playerChoice]}`);
     }
 }
 
 function checkEndCondition(humanScore, computerScore, numberOfRounds) {
     if (humanScore === 3) {
-        return "joueur gagne";
+        return "player wins";
     } else if (computerScore === 3) {
-        return "ordinateur gagne";
+        return "computer wins";
     } else if (numberOfRounds === MAX_ROUNDS) {
-        return "limite atteinte";
+        return "limit reached";
     }
-    return "continuer";
+    return "continue";
 }
 
 function displayEndCondition(gameState) {
     switch (gameState) {
-        case "joueur gagne":
-            console.log("Vous avez gagné la partie !");
+        case "player wins":
+            console.log("You have won the game!");
             break;
-        case "ordinateur gagne":
-            console.log("L'ordinateur a gagné la partie !");
+        case "computer wins":
+            console.log("The computer has won the game!");
             break;
-        case "limite atteinte":
-            console.log("La limite des tours a été atteinte, fin de la partie.");
+        case "limit reached":
+            console.log("The maximum number of rounds has been reached, game over.");
             break;
-        case "continuer":
-            console.log("La partie continue !");
+        case "continue":
+            console.log("The game continues!");
             break;
         default:
-            console.log("État inconnu, veuillez vérifier le programme.");
+            console.log("Unknown state, please check the program.");
     }
 }
 
@@ -96,7 +96,7 @@ function playRound() {
 }
 
 function playGame() {
-    while (checkEndCondition(humanScore, computerScore, numberOfRounds) === "continuer") {
+    while (checkEndCondition(humanScore, computerScore, numberOfRounds) === "continue") {
         playRound();
         numberOfRounds += 1;
         if (playerWin === true) {
@@ -104,8 +104,9 @@ function playGame() {
         } else if (computerWin === true) {
             computerScore += 1;
         }
-        console.log(`Votre score : ${humanScore}, le score de l'ordinateur : ${computerScore}`)
+        console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
     }
     gameState = checkEndCondition(humanScore, computerScore, numberOfRounds);
     displayEndCondition(gameState);
 }
+playGame();
