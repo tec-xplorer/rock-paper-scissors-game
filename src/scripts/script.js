@@ -48,9 +48,15 @@ function determineRoundWinner(playerChoice, computerChoice) {
 
 function displayRoundResult(playerChoice, computerChoice) {
     if (playerWin === true && computerWin === false) {
-        console.log(`You win! ${GAME_CHOICES[playerChoice]} beats ${GAME_CHOICES[computerChoice]}`);
+        console.log(
+            `You win! ${GAME_CHOICES[playerChoice]} beats ` +
+            `${GAME_CHOICES[computerChoice]}`
+        );
     } else if (playerWin === false && computerWin === true) {
-        console.log(`The computer wins! ${GAME_CHOICES[computerChoice]} beats ${GAME_CHOICES[playerChoice]}`);
+        console.log(
+            `The computer wins! ${GAME_CHOICES[computerChoice]} beats ` +
+            `${GAME_CHOICES[playerChoice]}`
+        );
     } else {
         console.log(`It's a tie! Both chose ${GAME_CHOICES[playerChoice]}`);
     }
@@ -76,7 +82,9 @@ function displayEndCondition(gameState) {
             console.log("The computer has won the game!");
             break;
         case "limit reached":
-            console.log("The maximum number of rounds has been reached, game over.");
+            console.log(
+                "The maximum number of rounds has been reached, game over."
+            );
             break;
         case "continue":
             console.log("The game continues!");
@@ -96,7 +104,10 @@ function playRound() {
 }
 
 function playGame() {
-    while (checkEndCondition(humanScore, computerScore, numberOfRounds) === "continue") {
+    while (
+        checkEndCondition(humanScore, computerScore, numberOfRounds) 
+        === "continue"
+    ) {
         playRound();
         numberOfRounds += 1;
         if (playerWin === true) {
@@ -104,7 +115,9 @@ function playGame() {
         } else if (computerWin === true) {
             computerScore += 1;
         }
-        console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
+        console.log(
+            `Your score: ${humanScore}, Computer score: ${computerScore}`
+        );
     }
     gameState = checkEndCondition(humanScore, computerScore, numberOfRounds);
     displayEndCondition(gameState);
