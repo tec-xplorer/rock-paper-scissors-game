@@ -8,6 +8,9 @@ let numberOfRounds = 0;
 let humanScore = 0;
 let computerScore = 0;
 
+/*
+ * Displays the available game choices.
+ */
 function displayChoices() {
     console.log("Choose an option:");
     for (let key in GAME_CHOICES) {
@@ -15,6 +18,9 @@ function displayChoices() {
     }
 }
 
+/*
+ * Prompts the user to enter a choice and returns it after validation.
+ */
 function getHumanChoice() {
     displayChoices();
     let userInput = parseInt(prompt("Make your choice!"), 10);
@@ -26,12 +32,18 @@ function getHumanChoice() {
     return userInput;
 }
 
+/*
+ * Generates and returns the computer's choice randomly.
+ */
 function getComputerChoice() {
     const computerRandomChoice = Math.floor(Math.random() * 3) + 1;
     console.log(`The computer chose: ${computerRandomChoice}`);
     return computerRandomChoice;
 }
 
+/*
+ * Determines the winner of the round by setting playerWin or computerWin.
+ */
 function determineRoundWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return; // undefined, no change, equality
@@ -46,6 +58,9 @@ function determineRoundWinner(playerChoice, computerChoice) {
     }
 }
 
+/*
+ * Displays the result of the round based on the winner.
+ */
 function displayRoundResult(playerChoice, computerChoice) {
     if (playerWin === true && computerWin === false) {
         console.log(
@@ -62,6 +77,10 @@ function displayRoundResult(playerChoice, computerChoice) {
     }
 }
 
+/*
+ * Checks the end condition of the game.
+ * Returns "player wins", "computer wins", "limit reached", or "continue".
+ */
 function checkEndCondition(humanScore, computerScore, numberOfRounds) {
     if (humanScore === 3) {
         return "player wins";
@@ -73,6 +92,9 @@ function checkEndCondition(humanScore, computerScore, numberOfRounds) {
     return "continue";
 }
 
+/*
+ * Displays the final game state message.
+ */
 function displayEndCondition(gameState) {
     switch (gameState) {
         case "player wins":
@@ -94,6 +116,11 @@ function displayEndCondition(gameState) {
     }
 }
 
+/*
+ * Plays a single round of the game:
+ * Resets win indicators, gets choices, determines the winner, 
+ * and displays the round result.
+ */
 function playRound() {
     playerWin = false;
     computerWin = false;
@@ -103,6 +130,11 @@ function playRound() {
     displayRoundResult(playerChoice, computerChoice);
 }
 
+/*
+ * Manages the game loop:
+ * Continues playing rounds until the game end condition is met,
+ * updates scores, and displays the final game state.
+ */
 function playGame() {
     while (
         checkEndCondition(humanScore, computerScore, numberOfRounds) 
@@ -122,4 +154,6 @@ function playGame() {
     gameState = checkEndCondition(humanScore, computerScore, numberOfRounds);
     displayEndCondition(gameState);
 }
+
+// Start the game
 playGame();
