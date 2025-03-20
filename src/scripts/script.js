@@ -1,38 +1,3 @@
-# rock-paper-scissors-game
-
-This small project helped me improve my project management skills. While working on it, I set up a clear workflow, learned how to name my Git branches in a professional way, and wrote clear, detailed commit messages and pull requests. This experience was an important step in my growth as a developer, helping me learn better development practices.
-
-*Thank you to The Odin Project team.*
-
----
-
-## Introduction
-
-This project is a simple Rock, Paper, Scissors game built in JavaScript. It allows you to play against the computer while practicing basic programming concepts such as loops, conditionals, and functions. 
-
-The project was developed as part of the training provided by [The Odin Project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors).
-
----
-
-## Features
-
-- **Play against the computer:** Challenge the computer in a classic game of Rock, Paper, Scissors.
-- **Score tracking:** The game displays the current score after each round.
-- **Tie management:** In case both players choose the same option, the round is replayed.
-- **Game end conditions:** The game ends when a player reaches 3 wins or after 5 rounds maximum.
-- **Clear messages:** Each round and the final game state are communicated clearly via messages.
-
----
-
-## Technologies
-
-- **Language:** JavaScript
-
----
-
-### Code Example
-
-```javascript
 const MAX_ROUNDS = 5;
 const GAME_CHOICES = {1: "Rock", 2: "Paper", 3: "Scissors"};
 let playerChoice = "";
@@ -192,10 +157,3 @@ function playGame() {
 
 // Start the game
 playGame();
-```
-
----
-## Contact
-
-- **GitHub:** https://github.com/think-efficient
-- **Email:** securecyberlink@protonmail.com
