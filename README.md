@@ -197,5 +197,5 @@ playGame();
 ---
 ## Contact
 
-- **GitHub:** https://github.com/think-efficient
+- **GitHub:** https://github.com/tec-xplorer
 - **Email:** securecyberlink@protonmail.com
